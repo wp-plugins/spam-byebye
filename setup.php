@@ -20,12 +20,12 @@
 ?>
 
 	<div class="wrap">
-		<h2>SPAM-BYE2設定</h2>
+		<h2>SPAM-BYEBYE設定</h2>
 		<h3 id="spambye2result" style="color:#ff0000;"><?php echo $_POST['_SB2_RESULT']; ?></h3>
 		<h3>基本設定</h3>
 
-		<form method="post" action="admin.php?page=spam-bye2">
-		<input type="hidden" name="spam-bye2_update" value="1" />
+		<form method="post" action="admin.php?page=spam-byebye">
+		<input type="hidden" name="spam-byebye_update" value="1" />
 		<input type="hidden" name="SB2_ENTRY_OBJECT[]" value="<?php echo $_POST['SB2_ENTRY_OBJECT'][0]; ?>" id="spambye2ObjectNum" />
 
 		<table class="widefat">

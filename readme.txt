@@ -11,6 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
+### ■バージョン2.1.0以前は下記にあります
+http://cmf.ohtanz.com/spam-bye2.html
+
 ### ■特徴
 以下の機能を自由に組み合わせることにより、閾値に達した投稿を制限することができます
 

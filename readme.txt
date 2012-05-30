@@ -218,7 +218,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Screenshots ==
 
-/tags/2.1.0/screenshot-1.png
+screenshot-1.png
 
 == Changelog ==
 

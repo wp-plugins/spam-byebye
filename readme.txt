@@ -11,15 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-### ■注意
-####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
-
-####2.0.xから2.1.0へアップグレードする場合
-* 既にアップロードしているconfig.phpがそのまま利用できます
-
-####1.xから2.1.0へアップグレードする場合
-* 互換性がないので既にアップロードしているconfig.phpは利用できません
-
 ### ■特徴
 以下の機能を自由に組み合わせることにより、閾値に達した投稿を制限することができます
 
@@ -35,6 +26,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ※DNSBL、URIBLの検査はDNSを参照するため、投稿時のパフォーマンスが低下する場合があります
 
 == Installation ==
+
+### ■注意
+####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
+
+####2.0.xから2.1.0へアップグレードする場合
+* 既にアップロードしているconfig.phpがそのまま利用できます
+
+####1.xから2.1.0へアップグレードする場合
+* 互換性がないので既にアップロードしているconfig.phpは利用できません
 
 ### ■プラグインの有効化
 管理ページ＞プラグイン＞spam-bye2を有効にしてください
@@ -223,34 +223,34 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Changelog ==
 
 = 2.1.0 =
-* 管理画面に設定用I/Fを追加(update on 2012/05/25)
+* 管理画面に設定用I/Fを追加
 
 = 2.0.4 =
-* DNS参照部分のバグを修正(update on 2012/04/29)
+* DNS参照部分のバグを修正
 
 = 2.0.3 =
-* stable版をリリース(update on 2011/08/27)
+* stable版をリリース
 
 = 2.0.1 =
-* beta版を更新(update on 2011/07/15)
+* beta版を更新
 
 = 2.0.0 =
-* beta版をリリース(update on 2011/07/12)
+* beta版をリリース
 
 = 1.3.0 =
-* 管理者がログインしている場合は検査対象から除外されるように変更(update on 2011/01/18)
+* 管理者がログインしている場合は検査対象から除外されるように変更
 
 = 1.2.0 =
 * プラグインを有効にするだけで使えるように修正
-* DNSDBLのデフォルトをdnsbl.spam-champuru.livedoor.comに変更(update on 2008/09/20)
+* DNSDBLのデフォルトをdnsbl.spam-champuru.livedoor.comに変更
 
 = 1.1.0 =
 * 名前欄を検査対象に追加
 * ソースの文字コードをUTF8に変更
-* 投稿URL数の検査方法を変更(update on 2008/11/02)
+* 投稿URL数の検査方法を変更
 
 = 1.0.0 =
-* 1stリリース(update on 2007/08/12)
+* 1stリリース
 
 == Upgrade Notice ==
 ####none

@@ -7,18 +7,12 @@ Stable tag: 2.1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-コメントスパム対策用プラグイン
+コメントスパム対策用プラグイン(SPAM-BYEBYE)
 
 == Description ==
 
-### ■注意
-####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
-
-####2.0.xから2.1.0へアップグレードする場合
-* 既にアップロードしているconfig.phpがそのまま利用できます
-
-####1.xから2.1.0へアップグレードする場合
-* 互換性がないので既にアップロードしているconfig.phpは利用できません
+### ■バージョン2.1.0以前は下記にあります
+http://cmf.ohtanz.com/spam-bye2.html
 
 ### ■特徴
 以下の機能を自由に組み合わせることにより、閾値に達した投稿を制限することができます
@@ -36,11 +30,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Installation ==
 
+### ■注意
+####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
+
+####2.0.xから2.1.0へアップグレードする場合
+* config.phpを変更している場合はconfig.phpのバックアップを取っておいてください
+* 旧バージョンを削除後、2.1.0を新規にインストールしてください
+* 2.1.0のインストール後、config.phpをspam-byebyeディレクトリにアップロードしてください
+
+####1.xから2.1.0へアップグレードする場合
+* 旧バージョンを削除後、2.1.0を新規にインストールしてください
+* config.phpを変更している場合は2.1.0では従来のconfig.phpは利用できないので下記手順にて再設定を行ってください
+
 ### ■プラグインの有効化
-管理ページ＞プラグイン＞spam-bye2を有効にしてください
+管理ページ＞プラグイン＞spam-byebyeを有効にしてください
 
 ### ■設定
-管理ページ＞設定＞SPAM-BYE2設定にて下記を設定してください
+管理ページ＞設定＞SPAM-BYEBYE設定にて下記を設定してください
 
 ### 基本設定
 ####1.スパムと判定する閾値
@@ -218,57 +224,39 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Screenshots ==
 
-/tags/2.1.0/screenshot1.png
+1. 設定画面
 
 == Changelog ==
 
 = 2.1.0 =
 * 管理画面に設定用I/Fを追加
 
-> update on 2012/05/25
-
 = 2.0.4 =
 * DNS参照部分のバグを修正
-
-> update on 2012/04/29
 
 = 2.0.3 =
 * stable版をリリース
 
-> update on 2011/08/27
-
 = 2.0.1 =
 * beta版を更新
-
-> update on 2011/07/15
 
 = 2.0.0 =
 * beta版をリリース
 
-> update on 2011/07/12
-
 = 1.3.0 =
 * 管理者がログインしている場合は検査対象から除外されるように変更
-
-> update on 2011/01/18
 
 = 1.2.0 =
 * プラグインを有効にするだけで使えるように修正
 * DNSDBLのデフォルトをdnsbl.spam-champuru.livedoor.comに変更
-
-> update on 2008/09/20
 
 = 1.1.0 =
 * 名前欄を検査対象に追加
 * ソースの文字コードをUTF8に変更
 * 投稿URL数の検査方法を変更
 
-> update on 2008/11/02
-
 = 1.0.0 =
 * 1stリリース
-
-> update on 2007/08/12
 
 == Upgrade Notice ==
 ####none

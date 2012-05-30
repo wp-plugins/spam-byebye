@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: spam-bye2
+Plugin Name: spam-byebye
 Plugin URI: http://cmf.ohtanz.com/
 Description: コメントスパム対策用プラグイン
 Author: ohtan
@@ -24,9 +24,9 @@ License: GPL2
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('SB2_CONFIG_DEF', WP_PLUGIN_DIR."/spam-bye2/config.default.php");
-define('SB2_CONFIG_MAIN', WP_PLUGIN_DIR."/spam-bye2/config.php");
-define('SB2_SETUP_FILE', WP_PLUGIN_DIR."/spam-bye2/setup.php");
+define('SB2_CONFIG_DEF', WP_PLUGIN_DIR."/spam-byebye/config.default.php");
+define('SB2_CONFIG_MAIN', WP_PLUGIN_DIR."/spam-byebye/config.php");
+define('SB2_SETUP_FILE', WP_PLUGIN_DIR."/spam-byebye/setup.php");
 define('SB2_CONFIG_FILE', (file_exists(SB2_CONFIG_MAIN) ? SB2_CONFIG_MAIN : SB2_CONFIG_DEF));
 
 add_filter('preprocess_comment', 'spambye2Load', 1);
@@ -54,14 +54,14 @@ function spambye2SetupLoad()
 {
 	if (file_exists(SB2_CONFIG_FILE) && file_exists(SB2_SETUP_FILE)) {
 		$sb2s = & new spamBye2Setup();
-		add_submenu_page('options-general.php', 'SPAM-BYE2設定', 'SPAM-BYE2設定', 8, 'spam-bye2', array($sb2s, 'spambye2SetupCheck'));
+		add_submenu_page('options-general.php', 'SPAM-BYEBYE設定', 'SPAM-BYEBYE設定', 8, 'spam-byebye', array($sb2s, 'spambye2SetupCheck'));
 	}
 }
 
 function spambye2AddLink($links, $file)
 {
 	if ($file === plugin_basename(__FILE__)) {
-		$settings_link = '<a href="options-general.php?page=spam-bye2">設定</a>';
+		$settings_link = '<a href="options-general.php?page=spam-byebye">設定</a>';
         array_unshift($links, $settings_link);
     }
 
@@ -70,7 +70,7 @@ function spambye2AddLink($links, $file)
 
 function spambye2AddJs()
 {
-	if ($_GET['page'] === "spam-bye2") {
+	if ($_GET['page'] === "spam-byebye") {
 		echo '<script type="text/javascript" src="' . plugin_dir_url(__FILE__) . 'setup.js"></script>' . "\n";
 	}
 }
@@ -81,7 +81,7 @@ class spamBye2Setup
 
 	function spambye2SetupCheck()
 	{
-		if (isset($_POST['spam-bye2_update'])) {
+		if (isset($_POST['spam-byebye_update'])) {
 			$this->sb2SetupSave();
 		}
 
@@ -94,7 +94,7 @@ class spamBye2Setup
 
 	function sb2SetupSave()
 	{
-		$tmpConfigFile = WP_PLUGIN_DIR."/spam-bye2/_config.php";
+		$tmpConfigFile = WP_PLUGIN_DIR."/spam-byebye/_config.php";
 
 		$this->sb2SetupValid();
 

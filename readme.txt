@@ -7,7 +7,7 @@ Stable tag: 2.1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-コメントスパム対策用プラグイン
+コメントスパム対策用プラグイン(SPAM-BYEBYE)
 
 == Description ==
 

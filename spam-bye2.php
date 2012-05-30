@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: spam-byebye
+Plugin Name: spam-bye2
 Plugin URI: http://cmf.ohtanz.com/
 Description: コメントスパム対策用プラグイン
 Author: ohtan

@@ -223,52 +223,34 @@ screenshot-1.png
 == Changelog ==
 
 = 2.1.0 =
-* 管理画面に設定用I/Fを追加
-
-> update on 2012/05/25
+* 管理画面に設定用I/Fを追加(update on 2012/05/25)
 
 = 2.0.4 =
-* DNS参照部分のバグを修正
-
-> update on 2012/04/29
+* DNS参照部分のバグを修正(update on 2012/04/29)
 
 = 2.0.3 =
-* stable版をリリース
-
-> update on 2011/08/27
+* stable版をリリース(update on 2011/08/27)
 
 = 2.0.1 =
-* beta版を更新
-
-> update on 2011/07/15
+* beta版を更新(update on 2011/07/15)
 
 = 2.0.0 =
-* beta版をリリース
-
-> update on 2011/07/12
+* beta版をリリース(update on 2011/07/12)
 
 = 1.3.0 =
-* 管理者がログインしている場合は検査対象から除外されるように変更
-
-> update on 2011/01/18
+* 管理者がログインしている場合は検査対象から除外されるように変更(update on 2011/01/18)
 
 = 1.2.0 =
 * プラグインを有効にするだけで使えるように修正
-* DNSDBLのデフォルトをdnsbl.spam-champuru.livedoor.comに変更
-
-> update on 2008/09/20
+* DNSDBLのデフォルトをdnsbl.spam-champuru.livedoor.comに変更(update on 2008/09/20)
 
 = 1.1.0 =
 * 名前欄を検査対象に追加
 * ソースの文字コードをUTF8に変更
-* 投稿URL数の検査方法を変更
-
-> update on 2008/11/02
+* 投稿URL数の検査方法を変更(update on 2008/11/02)
 
 = 1.0.0 =
-* 1stリリース
-
-> update on 2007/08/12
+* 1stリリース(update on 2007/08/12)
 
 == Upgrade Notice ==
 ####none

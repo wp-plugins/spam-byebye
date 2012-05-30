@@ -31,7 +31,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
 
 ####2.0.xから2.1.0へアップグレードする場合
-* config.phpを変更している場合は削除する前にconfig.phpをバックアップしてください
+* config.phpを変更している場合はconfig.phpのバックアップを取っておいてください
 * 旧バージョンを削除後、2.1.0を新規にインストールしてください
 * 2.1.0のインストール後、config.phpをspam-byebyeディレクトリにアップロードしてください
 

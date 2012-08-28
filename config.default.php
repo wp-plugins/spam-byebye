@@ -148,42 +148,42 @@ define('SB2_ENTRY_OBJECT', 13);
 // 名前欄にURLがN個含まれる場合はN個x100ポイント加算(上限無し)
 define('SB2_OBJECT_1', 'sb2UrlCount,author,100,0,0');
 
-// URL欄にURLがN個含まれる場合はN個x10ポイント加算(上限10ポイント)
-define('SB2_OBJECT_2', 'sb2UrlCount,url,10,10,0');
-
-// 名前欄に日本語が含まれていない場合は20ポイント加算
-define('SB2_OBJECT_3', 'sb2Charactor,author,20');
-
-// コメント欄に日本語が含まれていない場合は70ポイント加算
-define('SB2_OBJECT_4', 'sb2Charactor,content,70');
-
-// コメント欄にひらがなが含まれていない場合は70ポイント加算
-define('SB2_OBJECT_5', 'sb2CharactorKana,content,70');
-
-// コメント欄にURLがN個含まれる場合はN個x30ポイント加算(上限無し)
-define('SB2_OBJECT_6', 'sb2UrlCount,content,30,0,0');
-
-// コメント欄に200文字を超える行が含まれる場合はN行x30ポイント加算(上限無し)
-define('SB2_OBJECT_7', 'sb2Length,content,30,0,200');
-
-// コメント欄に3個以上の連続した改行の合計が15個を超過した場合は40ポイント加算
-define('SB2_OBJECT_8', 'sb2FeedCount,content,40,3,15');
-
-// コメント欄にNGワードが含まれる場合はN個x20ポイント加算(上限無し)
-define('SB2_NGWORD_9', 'rolex,会員,price,visa,master');
-define('SB2_OBJECT_9', 'sb2NgWord,content,20,0');
-
-// コメント欄にNGワードが含まれる場合はN個x50ポイント加算(上限無し)
-define('SB2_NGWORD_10', '不倫,セックス,sex,オナニ,出会,童貞,viagra,SM,人妻,セフレ,18禁');
-define('SB2_OBJECT_10', 'sb2NgWord,content,50,0');
-
 // 投稿者のIPがDNSBLに登録されている場合は100ポイント加算(上限無し)
-define('SB2_OBJECT_11', 'sb2Dnsbl,100,0');
+define('SB2_OBJECT_2', 'sb2Dnsbl,100,0');
 
 // URL欄のURLがURIBLに登録されている場合は登録数x90ポイント加算(上限無し)
-define('SB2_OBJECT_12', 'sb2Uribl,url,90,0');
+define('SB2_OBJECT_3', 'sb2Uribl,url,90,0');
 
 // コメント欄のURLがURIBLに登録されている場合は登録数x90ポイント加算(上限無し)
-define('SB2_OBJECT_13', 'sb2Uribl,content,90,0');
+define('SB2_OBJECT_4', 'sb2Uribl,content,90,0');
+
+// URL欄にURLがN個含まれる場合はN個x10ポイント加算(上限10ポイント)
+define('SB2_OBJECT_5', 'sb2UrlCount,url,10,10,0');
+
+// 名前欄に日本語が含まれていない場合は20ポイント加算
+define('SB2_OBJECT_6', 'sb2Charactor,author,20');
+
+// コメント欄に日本語が含まれていない場合は70ポイント加算
+define('SB2_OBJECT_7', 'sb2Charactor,content,70');
+
+// コメント欄にひらがなが含まれていない場合は70ポイント加算
+define('SB2_OBJECT_8', 'sb2CharactorKana,content,70');
+
+// コメント欄にURLがN個含まれる場合はN個x30ポイント加算(上限無し)
+define('SB2_OBJECT_9', 'sb2UrlCount,content,30,0,0');
+
+// コメント欄に200文字を超える行が含まれる場合はN行x30ポイント加算(上限無し)
+define('SB2_OBJECT_10', 'sb2Length,content,30,0,200');
+
+// コメント欄に3個以上の連続した改行の合計が15個を超過した場合は40ポイント加算
+define('SB2_OBJECT_11', 'sb2FeedCount,content,40,3,15');
+
+// コメント欄にNGワードが含まれる場合はN個x20ポイント加算(上限無し)
+define('SB2_NGWORD_12', 'rolex,会員,price,visa,master');
+define('SB2_OBJECT_12', 'sb2NgWord,content,20,0');
+
+// コメント欄にNGワードが含まれる場合はN個x50ポイント加算(上限無し)
+define('SB2_NGWORD_13', '不倫,セックス,sex,オナニ,出会,童貞,viagra,SM,人妻,セフレ,18禁');
+define('SB2_OBJECT_13', 'sb2NgWord,content,50,0');
 
 ?>

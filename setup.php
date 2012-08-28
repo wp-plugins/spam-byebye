@@ -36,14 +36,14 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;">スパムと判定する閾値</th>
 			<td style="border-bottom:0;"><input name="SB2_SPAM_LEVEL[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST['SB2_SPAM_LEVEL'][0]); ?>" /></td>
 		</tr>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_SPAM_LEVEL']['error']; ?></td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;">スパムと判定された場合のアクション</th>
 			<td style="border-bottom:0;">
 				<select name="SB2_SPAM_ACTION[]" class="postform">
@@ -52,35 +52,35 @@
 				</select>
 			</td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_SPAM_ACTION']['error']; ?></td>
 		</tr>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;">スパムと判定された場合に表示するメッセージ</th>
 			<td style="border-bottom:0;"><input name="SB2_SPAM_MESSAGE[]" type="text" size="80" class="search-input" value="<?php echo htmlspecialchars($_POST['SB2_SPAM_MESSAGE'][0]); ?>" /></td>
 		</tr>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_SPAM_MESSAGE']['error']; ?></td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;">スパムと判定された場合のリダイレクトURL</th>
 			<td style="border-bottom:0;"><input name="SB2_SPAM_REDIRECT[]" type="text" size="80" class="search-input" value="<?php echo htmlspecialchars($_POST['SB2_SPAM_REDIRECT'][0]); ?>" /></td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_SPAM_REDIRECT']['error']; ?></td>
 		</tr>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;">DNSBLデータベース</th>
 			<td style="border-bottom:0;"><textarea name="SB2_DNSBL_HOSTS[]" rows="5" cols="70" class="search-input"><?php echo htmlspecialchars($_POST['SB2_DNSBL_HOSTS'][0]); ?></textarea></td>
 		</tr>
-		<tr style="background-color:#f9f9f9;">
+		<tr>
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_DNSBL_HOSTS']['error']; ?></td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<th rowspan="2" style="border-right:1px solid #dfdfdf;border-bottom:0;">URIBLデータベース</th>
 			<td style="border-bottom:0;"><textarea name="SB2_URIBL_HOSTS[]" rows="5" cols="70" class="search-input"><?php echo htmlspecialchars($_POST['SB2_URIBL_HOSTS'][0]); ?></textarea></td>
 		</tr>
-		<tr style="background-color:#ececec;">
+		<tr>
 			<td style="color:red;border-top:0;border-bottom:0;"><?php echo $_POST['SB2_URIBL_HOSTS']['error']; ?></td>
 		</tr>
 		</tbody>
@@ -94,7 +94,7 @@
 			<th style="width:10%;border-right:1px solid #dfdfdf;text-align:center;white-space:nowrap;">優先度</th>
 			<th style="width:20%;border-right:1px solid #dfdfdf;white-space:nowrap;">チェック内容</th>
 			<th style="width:5%;border-right:1px solid #dfdfdf;white-space:nowrap;">チェック対象</th>
-			<th colspan="2" style="width:65%;white-space:nowrap;">値</th>
+			<th colspan="7" style="width:65%;white-space:nowrap;">値</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -104,10 +104,9 @@
 				$defVal = $_POST[$defName][0];
 
 				$lastStyle = ($i == $_POST['SB2_ENTRY_OBJECT'][0] ? "border-bottom:0;" : null);
-				$bgcol = ($i % 2 != 0 ? '#f9f9f9' : '#ececec');
 			?>
 
-		<tr class="spambye2Column" style="background-color:<?php echo $bgcol ?>;">
+		<tr class="spambye2Column">
 			<td rowspan="2" style="border-right:1px solid #dfdfdf;white-space:nowrap;text-align:center;<?php echo $lastStyle; ?>"<?php if ($lastStyle) echo " class='spambye2LastColumn'"; ?>>
 				<input type="button" class="button spambye2UpColumn" value="↑" />
 				<input type="button" class="button spambye2DownColumn" value="↓" />
@@ -165,91 +164,77 @@
 					case "sb2Charactor":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td colspan="5" style="border-bottom:0;white-space:nowrap;width:85%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2Length":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></div>
-				<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容文字数</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">許容文字数</td>
+			<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2FeedCount":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">チェック改行数</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></div>
-				<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容改行数</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">チェック改行数</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">許容改行数</td>
+			<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2NgWord":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></div>
-				<div style="clear:both;width:135px;float:left;">NGワード</div>
-				<div style="float:left;width:60%;"><textarea name="<?php echo "SB2_NGWORD_${i}"; ?>[]" rows="5" cols="35" class="search-input" style="width:100%;"><?php echo htmlspecialchars($_POST['SB2_NGWORD_'.$i][0]); ?></textarea></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">NGワード</td>
+			<td style="border-bottom:0;white-space:nowrap;width:45%;"><textarea name="<?php echo "SB2_NGWORD_${i}"; ?>[]" rows="5" cols="50" class="search-input"><?php echo htmlspecialchars($_POST['SB2_NGWORD_'.$i][0]); ?></textarea></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2UrlCount":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></div>
-				<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容URL数</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">許容URL数</td>
+			<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][4]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2Uribl":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>
+			<td colspan="3" style="border-bottom:0;white-space:nowrap;width:65%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][3]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					case "sb2Dnsbl":
 			?>
 
-			<td style="border-bottom:0;width:60%;">
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>
-				<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][1]); ?>" /></div>
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>
-				<div style="float:left;height:30px;line-height:30px;"><input name="<?php echo $defName; ?>[]" type="text" size="3" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></div>
-			</td>
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][1]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>
+			<td colspan="3" style="border-bottom:0;white-space:nowrap;width:65%;"><input name="<?php echo $defName; ?>[]" type="text" size="5" class="search-input" value="<?php echo htmlspecialchars($_POST[$defName][2]); ?>" /></td>
+			<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>
 			<?php
 						break;
 					default:
@@ -258,8 +243,8 @@
 			?>
 
 		</tr>
-		<tr class="spambye2ErrorColumn" style="background-color:<?php echo $bgcol ?>;">
-			<td colspan="2" style="color:red;border-top:0;<?php echo $lastStyle; ?>"<?php if ($lastStyle) echo " class='spambye2LastColumn'"; ?>><?php echo $_POST[$defName]['error']; ?></td>
+		<tr class="spambye2ErrorColumn">
+			<td colspan="7" style="color:red;border-top:0;<?php echo $lastStyle; ?>"<?php if ($lastStyle) echo " class='spambye2LastColumn'"; ?>><?php echo $_POST[$defName]['error']; ?></td>
 		</tr>
 		<?php
 			}

@@ -6,11 +6,10 @@ jQuery(function(){
 
 		var rows = jQuery('#spambye2CheckTable tbody').children().length;
 			rows = (rows / 2) + 1;
-		var bgcol = (rows % 2 != 0 ? '#f9f9f9' : '#ececec');
 
 		jQuery('#spambye2ObjectNum').attr('value', rows);
 
-		jQuery('#spambye2CheckTable tbody').append('<tr class="spambye2Column" style="background-color:'+ bgcol +';">\
+		jQuery('#spambye2CheckTable tbody').append('<tr class="spambye2Column">\
 			<td rowspan="2" style="border-right:1px solid #dfdfdf;white-space:nowrap;text-align:center;border-bottom:0;" class="spambye2LastColumn">\
 				<input type="button" class="button spambye2UpColumn" value="↑" />\
 				<input type="button" class="button spambye2DownColumn" value="↓" />\
@@ -34,14 +33,12 @@ jQuery(function(){
 				<option value="content">コメント欄</option>\
 				</select>\
 			</td>\
-			<td style="border-bottom:0;width:60%;">\
-				<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-				<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + rows + '[]" type="text" size="3" class="search-input" value="" /></div>\
-			</td>\
-			<td style="border-bottom:0;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>\
+			<td style="border-bottom:0;width:10%;">加算するポイント</td>\
+			<td colspan="5" style="border-bottom:0;width:85%;"><input name="SB2_OBJECT_' + rows + '[]" type="text" size="5" class="search-input" value="" /></td>\
+			<td style="border-bottom:0;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>\
 		</tr>\
-		<tr class="spambye2ErrorColumn" style="background-color:'+ bgcol +';">\
-			<td colspan="2" style="color:red;border-top:0;border-bottom:0;" class="spambye2LastColumn"></td>\
+		<tr class="spambye2ErrorColumn">\
+			<td colspan="7" style="color:red;border-top:0;border-bottom:0;" class="spambye2LastColumn"></td>\
 		</tr>');
 	});
 
@@ -57,19 +54,6 @@ jQuery(function(){
 		myObj.remove();
 		myObj2.remove();
 
-		var $i = 0;
-		jQuery('#spambye2CheckTable tbody').children("tr").each(function(){
-			if ($i < 2) {
-				jQuery(this).css('background-color', '#f9f9f9');
-				$i++;
-			} else {
-				jQuery(this).css('background-color', '#ececec');
-				$i++;
-			}
-
-			if ($i == 4) $i = 0;
-		});
-
 		spambye2LastClass();
 	});
 
@@ -77,19 +61,8 @@ jQuery(function(){
 	{
 		var myObj  = jQuery(this).parent().parent();
 		var myObj2 = myObj.next();
-		var myObj3 = myObj.prev("tr").prev("tr");
-		var myObj4 = myObj2.prev("tr").prev("tr");
-		var col1   = myObj.css('background-color');
-		var col2   = myObj2.css('background-color');
-		var col3   = myObj3.css('background-color');
-		var col4   = myObj4.css('background-color');
 
-		if (myObj3.attr('class')) {
-			myObj.css('background-color', col3);
-			myObj2.css('background-color', col4);
-			myObj3.css('background-color', col1);
-			myObj4.css('background-color', col2);
-
+		if (myObj.prev("tr").prev("tr")) {
 			myObj.insertBefore(myObj.prev("tr").prev("tr"));
 			myObj2.insertBefore(myObj2.prev("tr").prev("tr"));
 
@@ -101,19 +74,8 @@ jQuery(function(){
 	{
 		var myObj  = jQuery(this).parent().parent();
 		var myObj2 = myObj.next();
-		var myObj3 = myObj.next("tr").next("tr");
-		var myObj4 = myObj2.next("tr").next("tr");
-		var col1   = myObj.css('background-color');
-		var col2   = myObj2.css('background-color');
-		var col3   = myObj3.css('background-color');
-		var col4   = myObj4.css('background-color');
 
-		if (myObj3.attr('class')) {
-			myObj.css('background-color', col3);
-			myObj2.css('background-color', col4);
-			myObj3.css('background-color', col1);
-			myObj4.css('background-color', col2);
-
+		if (myObj.next("tr").next("tr")) {
 			myObj.insertAfter(myObj.next("tr").next("tr").next("tr"));
 			myObj2.insertAfter(myObj2.next("tr").next("tr").next("tr"));
 
@@ -144,73 +106,59 @@ jQuery(function(){
 		switch (type) {
 			case "sb2CharactorKana":
 			case "sb2Charactor":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td colspan="5" style="border-bottom:0;white-space:nowrap;width:85%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2Length":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容文字数</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">許容文字数</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2FeedCount":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">チェック改行数</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容改行数</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">チェック改行数</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">許容改行数</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2UrlCount":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="clear:both;width:135px;float:left;height:30px;line-height:30px;">許容URL数</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">許容URL数</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:45%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2NgWord":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="clear:both;width:135px;float:left;">NGワード</div>\
-						<div style="float:left;width:60%;"><textarea name="SB2_NGWORD_' + objName + '" rows="5" cols="35" class="search-input" style="width:100%;"></textarea></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">NGワード</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:45%;"><textarea name="SB2_NGWORD_' + objName + '" rows="5" cols="50" class="search-input"></textarea></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2Uribl":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>\
+						<td colspan="3" style="border-bottom:0;white-space:nowrap;width:65%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			case "sb2Dnsbl":
-				tags = tags + '<td style="border-bottom:0;width:60%;">\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算するポイント</div>\
-						<div style="float:left;margin-right:5px;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						<div style="width:135px;float:left;height:30px;line-height:30px;">加算ポイントの最大値</div>\
-						<div style="float:left;height:30px;line-height:30px;"><input name="SB2_OBJECT_' + objName + '" type="text" size="3" class="search-input" value="" /></div>\
-						</td>\
-						<td style="border-bottom:0;white-space:nowrap;width:5%;text-align:right;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
+				tags = tags + '<td style="border-bottom:0;white-space:nowrap;width:10%;">加算するポイント</td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:10%;">加算ポイントの最大値</td>\
+						<td colspan="3" style="border-bottom:0;white-space:nowrap;width:65%;"><input name="SB2_OBJECT_' + objName + '" type="text" size="5" class="search-input" value="" /></td>\
+						<td style="border-bottom:0;white-space:nowrap;width:5%;"><input type="button" class="button spambye2DelColumn" value="×" /></td>';
 				break;
 			default:
 				break;

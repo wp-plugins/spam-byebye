@@ -57,6 +57,19 @@ jQuery(function(){
 		myObj.remove();
 		myObj2.remove();
 
+		var $i = 0;
+		jQuery('#spambye2CheckTable tbody').children("tr").each(function(){
+			if ($i < 2) {
+				jQuery(this).css('background-color', '#f9f9f9');
+				$i++;
+			} else {
+				jQuery(this).css('background-color', '#ececec');
+				$i++;
+			}
+
+			if ($i == 4) $i = 0;
+		});
+
 		spambye2LastClass();
 	});
 

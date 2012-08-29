@@ -4,7 +4,7 @@ Plugin Name: spam-byebye
 Plugin URI: http://cmf.ohtanz.com/
 Description: コメントスパム対策用プラグイン
 Author: ohtan
-Version: 2.1.0
+Version: 2.1.1
 Author URI: http://cmf.ohtanz.com/
 License: GPL2
 */
@@ -25,7 +25,7 @@ License: GPL2
 */
 
 define('SB2_CONFIG_DEF', WP_PLUGIN_DIR."/spam-byebye/config.default.php");
-define('SB2_CONFIG_MAIN', WP_PLUGIN_DIR."/spam-byebye/config.php");
+define('SB2_CONFIG_MAIN', WP_CONTENT_DIR."/spam-byebye.config.php");
 define('SB2_SETUP_FILE', WP_PLUGIN_DIR."/spam-byebye/setup.php");
 define('SB2_CONFIG_FILE', (file_exists(SB2_CONFIG_MAIN) ? SB2_CONFIG_MAIN : SB2_CONFIG_DEF));
 
@@ -142,7 +142,7 @@ class spamBye2Setup
 			fclose($buff);
 
 			rename($tmpConfigFile, SB2_CONFIG_MAIN)
-				or wp_die("Can't rename ${tmpConfigFile}");
+				or wp_die("Can't rename ${tmpConfigFile} to ".SB2_CONFIG_MAIN);
 
 			$_POST['_SB2_RESULT'] = "保存しました";
 		} else {

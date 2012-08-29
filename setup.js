@@ -57,19 +57,7 @@ jQuery(function(){
 		myObj.remove();
 		myObj2.remove();
 
-		var $i = 0;
-		jQuery('#spambye2CheckTable tbody').children("tr").each(function(){
-			if ($i < 2) {
-				jQuery(this).css('background-color', '#f9f9f9');
-				$i++;
-			} else {
-				jQuery(this).css('background-color', '#ececec');
-				$i++;
-			}
-
-			if ($i == 4) $i = 0;
-		});
-
+		spambye2SetBgcol();
 		spambye2LastClass();
 	});
 
@@ -77,22 +65,12 @@ jQuery(function(){
 	{
 		var myObj  = jQuery(this).parent().parent();
 		var myObj2 = myObj.next();
-		var myObj3 = myObj.prev("tr").prev("tr");
-		var myObj4 = myObj2.prev("tr").prev("tr");
-		var col1   = myObj.css('background-color');
-		var col2   = myObj2.css('background-color');
-		var col3   = myObj3.css('background-color');
-		var col4   = myObj4.css('background-color');
 
-		if (myObj3.attr('class')) {
-			myObj.css('background-color', col3);
-			myObj2.css('background-color', col4);
-			myObj3.css('background-color', col1);
-			myObj4.css('background-color', col2);
-
+		if (myObj.prev("tr").prev("tr").attr('class')) {
 			myObj.insertBefore(myObj.prev("tr").prev("tr"));
 			myObj2.insertBefore(myObj2.prev("tr").prev("tr"));
 
+			spambye2SetBgcol();
 			spambye2LastClass();
 		}
 	});
@@ -101,22 +79,12 @@ jQuery(function(){
 	{
 		var myObj  = jQuery(this).parent().parent();
 		var myObj2 = myObj.next();
-		var myObj3 = myObj.next("tr").next("tr");
-		var myObj4 = myObj2.next("tr").next("tr");
-		var col1   = myObj.css('background-color');
-		var col2   = myObj2.css('background-color');
-		var col3   = myObj3.css('background-color');
-		var col4   = myObj4.css('background-color');
 
-		if (myObj3.attr('class')) {
-			myObj.css('background-color', col3);
-			myObj2.css('background-color', col4);
-			myObj3.css('background-color', col1);
-			myObj4.css('background-color', col2);
-
+		if (myObj.next("tr").next("tr").attr('class')) {
 			myObj.insertAfter(myObj.next("tr").next("tr").next("tr"));
 			myObj2.insertAfter(myObj2.next("tr").next("tr").next("tr"));
 
+			spambye2SetBgcol();
 			spambye2LastClass();
 		}
 	});
@@ -241,4 +209,20 @@ function spambye2LastClass()
 	last.children('td:nth-child(3)').attr('class', 'spambye2LastColumn');
 	jQuery('#spambye2CheckTable tbody tr.spambye2ErrorColumn:last').children().attr('class', 'spambye2LastColumn');
 	jQuery(".spambye2LastColumn").css('border-bottom', '0');
+}
+
+function spambye2SetBgcol()
+{
+		var $i = 0;
+		jQuery('#spambye2CheckTable tbody').children("tr").each(function(){
+			if ($i < 2) {
+				jQuery(this).css('background-color', '#f9f9f9');
+				$i++;
+			} else {
+				jQuery(this).css('background-color', '#ececec');
+				$i++;
+			}
+
+			if ($i == 4) $i = 0;
+		});
 }

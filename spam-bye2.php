@@ -4,7 +4,7 @@ Plugin Name: spam-byebye
 Plugin URI: http://cmf.ohtanz.com/
 Description: コメントスパム対策用プラグイン
 Author: ohtan
-Version: 2.1.1
+Version: 2.1.2
 Author URI: http://cmf.ohtanz.com/
 License: GPL2
 */

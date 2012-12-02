@@ -29,14 +29,14 @@ define('SB2_URIBL_HOSTS', 'url.rbl.jp,dyndns.rbl.jp,notop.rbl.jp,multi.surbl.org
 /************************************************** チェック項目設定 ***************************************************
 
 [チェック内容]
-	sb2CharactorKana	:ひらがなが含まれているか？
-	sb2Charactor		:日本語(2バイト以上の文字)が含まれているか？
-	sb2Length			:1行の文字数がN文字を超えていないか？
-	sb2FeedCount		:連続した改行の合計がN個を超えていないか？
-	sb2UrlCount			:URLが含まれているか？
-	sb2NgWord			:NGワードが含まれているか？
-	sb2Uribl			:URLがURIBLデータベースに登録されているか？
-	sb2Dnsbl			:投稿者のIPがDNSBLデータベースに登録されているか？
+	sb2CharactorKana	:ひらがなが含まれていない
+	sb2Charactor		:日本語(2バイト以上の文字)が含まれていない
+	sb2Length			:1行の文字数がN文字を超えている
+	sb2FeedCount		:連続した改行の合計がN個を超えている
+	sb2UrlCount			:URLが含まれている
+	sb2NgWord			:NGワードが含まれている
+	sb2Uribl			:URLがURIBLデータベースに登録されている
+	sb2Dnsbl			:投稿者のIPがDNSBLデータベースに登録されている
 
 [チェック対象]
 	author				:名前欄の入力値

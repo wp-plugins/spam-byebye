@@ -17,14 +17,14 @@ jQuery(function(){
 			</td>\
 			<td rowspan="2" style="border-right:1px solid #dfdfdf;border-bottom:0;" class="spambye2LastColumn">\
 				<select name="SB2_OBJECT_' + rows + '[]" class="postform spambye2ChangeColumn">\
-				<option value="sb2CharactorKana" selected="selected">ひらがなが含まれているか？</option>\
-				<option value="sb2Charactor">日本語(2バイト以上の文字)が含まれているか？</option>\
-				<option value="sb2Length">1行の文字数がN文字を超えていないか？</option>\
-				<option value="sb2FeedCount">連続した改行の合計がN個を超えていないか？</option>\
-				<option value="sb2UrlCount">URLが含まれているか？</option>\
-				<option value="sb2NgWord">NGワードが含まれているか？</option>\
-				<option value="sb2Uribl">URLがURIBLデータベースに登録されているか？</option>\
-				<option value="sb2Dnsbl">投稿者のIPがDNSBLデータベースに登録されているか？</option>\
+				<option value="sb2CharactorKana" selected="selected">ひらがなが含まれていない</option>\
+				<option value="sb2Charactor">日本語(2バイト以上の文字)が含まれていない</option>\
+				<option value="sb2Length">1行の文字数がN文字を超えている</option>\
+				<option value="sb2FeedCount">連続した改行の合計がN個を超えている</option>\
+				<option value="sb2UrlCount">URLが含まれている</option>\
+				<option value="sb2NgWord">NGワードが含まれている</option>\
+				<option value="sb2Uribl">URLがURIBLデータベースに登録されている</option>\
+				<option value="sb2Dnsbl">投稿者のIPがDNSBLデータベースに登録されている</option>\
 				</select>\
 			</td>\
 			<td rowspan="2" style="border-right:1px solid #dfdfdf;border-bottom:0;" class="spambye2LastColumn">\

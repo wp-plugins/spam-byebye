@@ -1,14 +1,14 @@
 <?php
 
 	$categoryList = array(
-		'sb2CharactorKana'=>'ひらがなが含まれているか？',
-		'sb2Charactor'=>'日本語(2バイト以上の文字)が含まれているか？',
-		'sb2Length'=>'1行の文字数がN文字を超えていないか？',
-		'sb2FeedCount'=>'連続した改行の合計がN個を超えていないか？',
-		'sb2UrlCount'=>'URLが含まれているか？',
-		'sb2NgWord'=>'NGワードが含まれているか？',
-		'sb2Uribl'=>'URLがURIBLデータベースに登録されているか？',
-		'sb2Dnsbl'=>'投稿者のIPがDNSBLデータベースに登録されているか？',
+		'sb2CharactorKana'=>'ひらがなが含まれていない',
+		'sb2Charactor'=>'日本語(2バイト以上の文字)が含まれていない',
+		'sb2Length'=>'1行の文字数がN文字を超えている',
+		'sb2FeedCount'=>'連続した改行の合計がN個を超えている',
+		'sb2UrlCount'=>'URLが含まれている',
+		'sb2NgWord'=>'NGワードが含まれている',
+		'sb2Uribl'=>'URLがURIBLデータベースに登録されている',
+		'sb2Dnsbl'=>'投稿者のIPがDNSBLデータベースに登録されている',
 	);
 
 	$categoryTarget = array(

@@ -2,8 +2,8 @@
 Contributors: ohtan
 Tags: comments, spam, admin
 Requires at least: 3.0.0
-Tested up to: 3.4.1
-Stable tag: 2.1.2
+Tested up to: 4.1.1
+Stable tag: 2.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ http://cmf.ohtanz.com/spam-bye2.html
 ### ■注意
 ####本スクリプトはマルチバイト文字列関数(mbstring)が必要となります
 
-####2.1.0から2.1.1へアップデートする際のご注意(設定を変更されている場合)
+####2.1.0から2.1.1以降へアップデートする際のご注意(設定を変更されている場合)
 * プラグイン編集からconfig.phpを選択し、全ての内容をコピーしてローカルに保存しておきます
 * プラグインをアップデートします
 * ローカルに保存した内容を全てコピーして、プラグイン編集にてconfig.default.phpにペーストしファイルを更新します
@@ -233,6 +233,8 @@ http://cmf.ohtanz.com/spam-bye2.html
 1. 設定画面
 
 == Changelog ==
+= 2.1.3 =
+* DNSBLの初期設定からスパムちゃんぷるーを削除
 
 = 2.1.2 =
 * 説明の文言を修正
@@ -278,10 +280,6 @@ http://cmf.ohtanz.com/spam-bye2.html
 == Arbitrary section ==
 
 ####■See also(DNSBL/URIBL)
-* スパムちゃんぷるー(dnsbl.spam-champuru.livedoor.com)
-
-> http://spam-champuru.livedoor.com/dnsbl/
-
 * Barracuda Reputation Block List(b.barracudacentral.org)
 
 > http://www.barracudacentral.org/rbl

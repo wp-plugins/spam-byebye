@@ -20,7 +20,7 @@ define('SB2_SPAM_REDIRECT', 'http://');
 
 // DNSBLデータベース
 // 複数指定する場合は「,」で区切る
-define('SB2_DNSBL_HOSTS', 'dnsbl.spam-champuru.livedoor.com,b.barracudacentral.org');
+define('SB2_DNSBL_HOSTS', 'b.barracudacentral.org');
 
 // URIBLデータベース
 // 複数指定する場合は「,」で区切る

@@ -3,7 +3,7 @@ Contributors: ohtan
 Tags: comments, spam, admin
 Requires at least: 3.0.0
 Tested up to: 4.1.1
-Stable tag: 2.1.3
+Stable tag: 2.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,10 @@ http://cmf.ohtanz.com/spam-bye2.html
 ####6.URIBLデータベース
 * 投稿されたURLに含まれるホスト名を検査するブラックリストデータベースを指定します
 * 複数のブラックリストデータベースを指定する場合は1件毎に改行を入れてください
+
+####7.ホワイトリスト(メールアドレス)
+* このリストのメールアドレスとEmail欄のメールドレスが一致した場合は検査を行いません
+* 複数のメールアドレスを指定する場合は1件毎に改行を入れてください
 
 ### チェック項目設定
 ####1.優先度
@@ -233,6 +237,9 @@ http://cmf.ohtanz.com/spam-bye2.html
 1. 設定画面
 
 == Changelog ==
+= 2.2.0 =
+* ホワイトリスト機能を追加
+
 = 2.1.3 =
 * DNSBLの初期設定からスパムちゃんぷるーを削除
 

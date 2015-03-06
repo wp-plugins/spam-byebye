@@ -26,6 +26,10 @@ define('SB2_DNSBL_HOSTS', 'b.barracudacentral.org');
 // 複数指定する場合は「,」で区切る
 define('SB2_URIBL_HOSTS', 'url.rbl.jp,dyndns.rbl.jp,notop.rbl.jp,multi.surbl.org,multi.uribl.com');
 
+// ホワイトリスト(メールアドレス)
+// 複数指定する場合は「,」で区切る
+define('SB2_WHITE_LISTS', '');
+
 /************************************************** チェック項目設定 ***************************************************
 
 [チェック内容]

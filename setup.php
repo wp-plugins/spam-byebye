@@ -77,11 +77,18 @@
 			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_DNSBL_HOSTS']['error']; ?></td>
 		</tr>
 		<tr style="background-color:#ececec;">
-			<th rowspan="2" style="border-right:1px solid #dfdfdf;border-bottom:0;">URIBLデータベース</th>
+			<th rowspan="2" style="border-right:1px solid #dfdfdf;">URIBLデータベース</th>
 			<td style="border-bottom:0;"><textarea name="SB2_URIBL_HOSTS[]" rows="5" cols="70" class="search-input"><?php echo htmlspecialchars($_POST['SB2_URIBL_HOSTS'][0]); ?></textarea></td>
 		</tr>
 		<tr style="background-color:#ececec;">
-			<td style="color:red;border-top:0;border-bottom:0;"><?php echo $_POST['SB2_URIBL_HOSTS']['error']; ?></td>
+			<td style="color:red;border-top:0;"><?php echo $_POST['SB2_URIBL_HOSTS']['error']; ?></td>
+		</tr>
+		<tr style="background-color:#f9f9f9;">
+			<th rowspan="2" style="border-right:1px solid #dfdfdf;border-bottom:0;">ホワイトリスト<br />(メールアドレス)</th>
+			<td style="border-bottom:0;"><textarea name="SB2_WHITE_LISTS[]" rows="5" cols="70" class="search-input"><?php echo htmlspecialchars($_POST['SB2_WHITE_LISTS'][0]); ?></textarea></td>
+		</tr>
+		<tr style="background-color:#f9f9f9;">
+			<td style="color:red;border-top:0;border-bottom:0;"><?php echo $_POST['SB2_WHITE_LISTS']['error']; ?></td>
 		</tr>
 		</tbody>
 		</table>

@@ -4,7 +4,7 @@ Plugin Name: spam-byebye
 Plugin URI: http://cmf.ohtanz.com/
 Description: コメントスパム対策用プラグイン
 Author: ohtan
-Version: 2.1.3
+Version: 2.2.0
 Author URI: http://cmf.ohtanz.com/
 License: GPL2
 */
@@ -43,7 +43,8 @@ function spambye2Load($inData)
 		$sb2->spamBye2Check(
 			$inData['comment_author'],
 			$inData['comment_author_url'],
-			$inData['comment_content']
+			$inData['comment_content'],
+			$inData['comment_author_email']
 		);
 	}
 
@@ -117,6 +118,7 @@ class spamBye2Setup
 							break;
 						case preg_match("/^SB2_DNSBL_HOSTS$/", $key):
 						case preg_match("/^SB2_URIBL_HOSTS$/", $key):
+						case preg_match("/^SB2_WHITE_LISTS$/", $key):
 							$line .= "define('${key}', '" . $this->sb2SetupSreplace($val[0]) . "');\n";
 							break;
 						case preg_match("/^SB2_NGWORD_[0-9]+$/", $key):
@@ -182,6 +184,13 @@ class spamBye2Setup
 		foreach (preg_split("/[\s]+/", $_POST['SB2_URIBL_HOSTS'][0]) as $val) {
 			if ($val !== "" && !preg_match("/^[\w\-\.]*[\w\-]+\.[a-z]+$/i", $val)) {
 				$_POST['SB2_URIBL_HOSTS']['error'] = "値を正しく入力してください";
+				$this->error = 1;
+				break;
+			}
+		}
+		foreach (preg_split("/[\s]+/", $_POST['SB2_WHITE_LISTS'][0]) as $val) {
+			if ($val !== "" && !preg_match("/^[0-9A-Za-z._\-]+@[0-9A-Za-z.\-]+$/i", $val)) {
+				$_POST['SB2_WHITE_LISTS']['error'] = "値を正しく入力してください";
 				$this->error = 1;
 				break;
 			}
@@ -295,6 +304,7 @@ class spamBye2Setup
 		$_POST['SB2_SPAM_REDIRECT'][0] = SB2_SPAM_REDIRECT;
 		$_POST['SB2_DNSBL_HOSTS'][0] = str_replace(",", "\r", SB2_DNSBL_HOSTS);
 		$_POST['SB2_URIBL_HOSTS'][0] = str_replace(",", "\r", SB2_URIBL_HOSTS);
+		$_POST['SB2_WHITE_LISTS'][0] = (defined('SB2_WHITE_LISTS') ? str_replace(",", "\r", SB2_WHITE_LISTS) : null);
 		$_POST['SB2_ENTRY_OBJECT'][0] = SB2_ENTRY_OBJECT;
 
 		for ($i = 1; $i <= SB2_ENTRY_OBJECT; $i++) {
@@ -327,8 +337,11 @@ class spamBye2
 	var $reverseaddr;
 	var $sb2Badpoint = 0;
 
-	function spamBye2Check($author,$url,$content)
+	function spamBye2Check($author, $url, $content, $email)
 	{
+		(array)$white_list = $this->sb2Explode(SB2_WHITE_LISTS, ',');
+		if (in_array($email, $white_list)) return;
+
 		if (!function_exists("mb_convert_encoding") || !function_exists("mb_strlen") || !function_exists("mb_detect_encoding")) {
 			wp_die('mbstring function is not found');
 		}
